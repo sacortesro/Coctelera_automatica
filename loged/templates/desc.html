@@ -4,14 +4,18 @@ Coctel en específico
 {% endblock%}
 
 {%block content%}
-    <div>
+     <div>
         <ul>
             <!-- {%for ing in desCoc["drinks"]%} -->
-            <li>{{desCoc["drinks"]}}</li>
+            <li>{{desCoc.get("drinks")[0].get("strDrink")}}</li>
+            <li>{{desCoc.get("drinks")[0].get("strInstructions")}}</li>
+            
             <!-- {%endfor%} -->
         </ul>
     </div>
-    <!-- <div>
-        <img src="{{desCoc.get('strDrinkThumb')}}" alt="Not found" width="150px">
-    </div> -->
+    <div>
+        <center>
+        <img src="{{desCoc.get('drinks')[0].get('strDrinkThumb')}}" alt="Not found" width="150px">
+        </center>
+    </div>
 {%endblock%}

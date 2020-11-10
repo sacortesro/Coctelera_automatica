@@ -22,21 +22,6 @@ def index():
             return redirect(url_for("coctel.cocteles"))
         return render_template('index.html')
 
-# @app.route("/cocteles", methods=["POST","GET"])
-# def cocteles():
-#     if "user" in session:
-# #        user = session["user"]
-#         return render_template("cocteles.html", data=data)
-#     else:
-#         return redirect(url_for("index"))
-
-# @app.route("/desc")
-# def desc():
-#     if "user" in session:
-#         return render_template("desc.html")
-#     else:
-#         return redirect(url_for("index"))
-
 @app.route("/logout")
 def logout():
     session.pop("user", None)

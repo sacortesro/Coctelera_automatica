@@ -5,8 +5,13 @@ Lista de cocteles
 
 {%block content%}
 
+<form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+</form> 
+
         {%for dat in data["drinks"]%}
-        <a href="{{url_for('coctel.desc')}}"><h1>{{dat.get("strDrink")}}</h1></a>
+        <a href="{{url_for('coctel.desc', type=dat.get('idDrink'))}}"><h1>{{dat.get("strDrink")}}</h1></a>
                 <p>{{dat.get("strInstructions")}}</p>
         {%endfor%}
 {%endblock%}

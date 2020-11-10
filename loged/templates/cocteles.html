@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%block title%}
+Lista de cocteles
+{% endblock%}
+
+{%block content%}
+
+        {%for dat in data["drinks"]%}
+        <a href="{{url_for('coctel.desc')}}"><h1>{{dat.get("strDrink")}}</h1></a>
+                <p>{{dat.get("strInstructions")}}</p>
+        {%endfor%}
+{%endblock%}
+

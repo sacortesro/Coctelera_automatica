@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block title%}
+Coctel en específico
+{% endblock%}
+
+{%block content%}
+    <div>
+        <ul>
+            <!-- {%for ing in desCoc["drinks"]%} -->
+            <li>{{desCoc["drinks"]}}</li>
+            <!-- {%endfor%} -->
+        </ul>
+    </div>
+    <!-- <div>
+        <img src="{{desCoc.get('strDrinkThumb')}}" alt="Not found" width="150px">
+    </div> -->
+{%endblock%}

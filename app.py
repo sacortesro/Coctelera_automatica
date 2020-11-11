@@ -1,10 +1,12 @@
 from flask import Flask, redirect, render_template, request, url_for, session, flash
 from datetime import timedelta
-#from dataJSON import data
 from loged.coctel import coctel
+from config.userInf import userInf
+import sqlalchemy
 
 app=Flask(__name__)
 app.register_blueprint(coctel,url_prefix="/loged")
+app.register_blueprint(userInf,url_prefix="/config")
 app.secret_key= "beberHastaLaInconsciencia"
 app.permanent_session_lifetime = timedelta(minutes=15)
 
@@ -12,7 +14,7 @@ app.permanent_session_lifetime = timedelta(minutes=15)
 @app.route('/', methods=["POST","GET"])
 def index():
     if request.method == "POST":
-        session.permanent = False
+        session.permanent = True
         user = request.form["Nombre"]
         pasword = request.form["Contraseña"]
         session["user"] = user        

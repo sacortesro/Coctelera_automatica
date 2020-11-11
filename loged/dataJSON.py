@@ -1,11 +1,13 @@
 import urllib3,json
 
 http = urllib3.PoolManager()
+def jsonSearch(name):
+    url="https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+name
+    json_url = http.request('GET', url)
+    #print(json_url.status)
+    data=json.loads(json_url.data)
+    return data
 
-url="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
-json_url = http.request('GET', url)
-#print(json_url.status)
-data=json.loads(json_url.data)
 #data = json.loads(json_url.read())
 #print(data["drinks"].)
 #for x in data["drinks"]:

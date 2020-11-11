@@ -16,8 +16,8 @@ def index():
     if request.method == "POST":
         session.permanent = True
         user = request.form["Nombre"]
-        pasword = request.form["Contraseña"]
-        session["user"] = user        
+        pasword = request.form["Contrasena"]
+        session["user"] = user
         return redirect(url_for("coctel.cocteles"))
     else:
         if "user" in session:
@@ -30,4 +30,4 @@ def logout():
     return redirect(url_for("index"))
 
 if __name__== '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=3134)

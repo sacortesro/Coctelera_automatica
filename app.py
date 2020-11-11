@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session, f
 from datetime import timedelta
 from loged.coctel import coctel
 from config.userInf import userInf
-import sqlalchemy
+#import sqlalchemy
 
 app=Flask(__name__)
 app.register_blueprint(coctel,url_prefix="/loged")

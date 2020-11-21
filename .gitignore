@@ -2,3 +2,5 @@
 #las clases
 .venv
 .vscode
+# los folders
+__pycache__/

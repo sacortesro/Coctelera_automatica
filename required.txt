@@ -4,3 +4,4 @@ Flask-WTF
 email_validator
 urllib3
 pylint-flask-sqlalchemy
+//Y la mejor actitud del mundo c:

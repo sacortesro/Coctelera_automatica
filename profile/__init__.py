@@ -11,13 +11,16 @@ def create_app():
     app.config.from_object("config.Config")
     
     #inicializa la base de datos
-    # db.init_app(app)
+    db.init_app(app)
 
     with app.app_context():
         # Import parts of our flask_wtforms_tutorial
         from . import routes
         from .home import home
         from .coctail import coctail
+        
+        # Create sql tables
+        db.create_all()
 
         #resgister blueprints
         app.register_blueprint(home.home_coctail)

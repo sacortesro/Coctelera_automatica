@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block title%}
+Ordenar coctel {{ desCoc.get('drinks')[0].get("strDrink")}}
+{% endblock%}
+
+{%block content%}
+     <div>
+         <center>
+            <h1> {{ desCoc.get('drinks')[0].get('strDrink') }} </h1>
+            <ul>
+                {% for x in ingrList %}    
+                    <li>{{ x }} </li>                   
+                {% endfor %}
+            </ul>            
+        </center>
+    </div>
+    <div>
+        <center>
+        <form method="POST" action="/home"> 
+            {{ form.submit }} 
+        </form>
+    </center>
+    </div>    
+    
+{%endblock%}

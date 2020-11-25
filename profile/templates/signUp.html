@@ -9,11 +9,12 @@ Registro
         <form action="/" method="POST">
             {{ form.csrf_token }}
             <dl>
-                <div>{{ form.name.label }} {{ form.name(size=20) }}</div>
-                <div>{{ form.email.label }} {{ form.email }}</div>
-                <div>{{ form.password.label }} {{ form.password }}</div>
-                <div>{{ form.confirmPassword.label }} {{ form.confirmPassword }}</div>
-                <div>{{ form.age.label }} {{ form.age }} </div>
+                <div>{{ form.name.label }}: {{ form.name(size=20) }}</div>
+                <div>{{ form.email.label }}: {{ form.email }}</div>
+                <div>{{ form.password.label }}: {{ form.password }}</div>
+                <div>{{ form.confirmPassword.label }}: {{ form.confirmPassword }}</div>
+                <div>{{ form.age.label }}: {{ form.age }} </div>
+                <div>{{ form.coctailNum.label }}: {{ form.coctailNum }} </div>
                 <div>{{ form.submit }}</div>
             </dl>        
         </form>

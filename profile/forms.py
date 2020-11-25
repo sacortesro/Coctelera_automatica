@@ -34,7 +34,11 @@ class SignupForm(FlaskForm):
     confirmPassword = PasswordField('Confirm password', [
             EqualTo(password, message='Passwords must match.')]
     )
-    age = DateField('Yor age')
+    age = DateField('Your age')
+    coctailNum = StringField('Codigo coctelera',[
+        DataRequired()]
+    )
+    coctailNum = StringField('Machine serial',[DataRequired()])
     submit = SubmitField('Sign Up')
 
 

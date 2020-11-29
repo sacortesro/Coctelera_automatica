@@ -1,12 +1,8 @@
 
 #  """App configuration."""
-# from os import 
-# tenv import load_dotenv
+import os
 
-# # Load variables from .env
-# basedir = path.abspath(path.dirname(__file__))
-# load_dotenv(path.join(basedir, ".env"))
-
+file_path = os.path.abspath(os.getcwd())+"/test.db"
 
 class Config:
     """Setting confg"""
@@ -17,12 +13,12 @@ class Config:
     FLASK_ENV = "development"
     TESTING = True
     DEBUG = True
-  
+
     # Static Assets
     STATIC_FOLDER = "static"
     TEMPLATES_FOLDER = "templates"
 
     # Database
-    SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/test.db"
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///'+file_path
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False

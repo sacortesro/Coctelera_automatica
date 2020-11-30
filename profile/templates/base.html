@@ -28,11 +28,14 @@
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-black" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
       {%block links%}{% endblock links%}
       <button onclick="document.getElementById('login').style.display='block'" class="w3-bar-item w3-right w3-button w3-hide-small w3-padding-large w3-hover-white">Login</button>
+      <button onclick="document.getElementById('signup').style.display='block'" class="w3-bar-item w3-right w3-button w3-hide-small w3-padding-large w3-hover-white">Signup</button>
   
     </div>
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    {%block linksm%}{% endblock linksm%}
+    <a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-padding-large">>Home</a>
+    <a href="{{ url_for('mission') }}" class="w3-bar-item w3-button w3-padding-large">>Misión</a>
+    <a href="{{ url_for('contact') }}" class="w3-bar-item w3-button w3-padding-large">>Contacto</a>
   </div>
 </div>
 
@@ -41,21 +44,48 @@
     <div class="w3-modal-content w3-animate-zoom">
       <div class="w3-container w3-black">
         <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Contact</h1>
+        <h1>Login</h1>
       </div>
       <div class="w3-container">
         <p>Entre su usuario para buscar cocteles:</p>
         <form action="/" method="POST">
-            {{ form.csrf_token }}
-          <p><div class="w3-input w3-padding-16 w3-border">>{{ form.name.label }} {{ form.name(size=20) }}</div></p>
-          <p><div class="w3-input w3-padding-16 w3-border">{{ form.password.label }} {{ form.password }}</div></p>
-          <p><div class="w3-button">{{ form.login_bt }}</div></p>
+            {{ form1.csrf_token }}
+          <p><div class="w3-padding-16">{{ form1.name.label }} {{ form1.name(size=20) }}</div></p>
+          <p><div class="w3-padding-16">{{ form1.password.label }} {{ form1.password }}</div></p>
+          <p><div>{{ form1.login_bt }}</div></p>
         </form>
         <p><a href="{{ url_for('signUp') }}"> <button class="w3-button" type="button"> Sign Up </button></a></p>
         <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continue as guest</button></a></p>
       </div>
     </div>
   </div>  
+
+  <!-- signup Modal -->
+<div id="signup" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('signup').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Signup</h1>
+    </div>
+    <div class="w3-container">
+      <p>Regístrese para buscar cocteles:</p>
+      <form action="/" method="POST">
+        {{ form2.csrf_token }}
+        <dl>
+            <div>{{ form2.name.label }}: {{ form2.name(size=20) }}</div>
+            <div>{{ form2.email.label }}: {{ form2.email }}</div>
+            <div>{{ form2.password.label }}: {{ form2.password }}</div>
+            <div>{{ form2.confirmPassword.label }}: {{ form2.confirmPassword }}</div>
+            <div>{{ form2.age.label }}: {{ form2.age }} </div>
+            <div>{{ form2.coctailNum.label }}: {{ form2.coctailNum }} </div>
+            <div>{{ form2.submit }}</div>
+        </dl>        
+    </form>
+      <p><a href="{{ url_for('signUp') }}"> <button class="w3-button" type="button"> Sign Up </button></a></p>
+      <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continue as guest</button></a></p>
+    </div>
+  </div>
+</div>  
 
 
  
@@ -71,6 +101,8 @@
   </div>
   </header>
   
+  {%block content%}{% endblock content%}
+
   {%block grids%}{% endblock grids%}
   
   <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">

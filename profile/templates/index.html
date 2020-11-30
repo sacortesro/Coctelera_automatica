@@ -2,16 +2,11 @@
 {%block title%}Mejor coctelera del mundo{% endblock%}
 
 {%block links%}
-<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Misión</a>
-<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contacto</a>
+<a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+<a href="{{ url_for('mission') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Misión</a>
+<a href="{{ url_for('contact') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contacto</a>
 {% endblock%}
 
-{%block linksm%}
-<a href="#" class="w3-bar-item w3-button w3-padding-large">>Home</a>
-<a href="#" class="w3-bar-item w3-button w3-padding-large">>Misión</a>
-<a href="#" class="w3-bar-item w3-button w3-padding-large">>Contacto</a>
-{% endblock linksm%}
 
 {%block HEADER%}INICIO{% endblock HEADER%}
 

@@ -1,16 +1,23 @@
 
 #  """App configuration."""
-import os
+from os import environ,getcwd,path
+from dotenv import load_dotenv
 
-file_path = os.path.abspath(os.getcwd())+"/test.db"
+
+# Configuration .env
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, '.env'))
+
+# Esto ya ni me acuerdo pa que sirve
+file_path = path.abspath(getcwd())+"/test2.db"
 
 class Config:
     """Setting confg"""
 
     # General Config
-    SECRET_KEY = "asdi89uda89sdua9sda97syd7"
-    FLASK_APP = "app.py"
-    FLASK_ENV = "development"
+    SECRET_KEY = environ.get('SECRET_KEY')
+    FLASK_APP = environ.get('FLASK_APP')
+    FLASK_ENV = environ.get('FLASK_ENV')
     TESTING = True
     DEBUG = True
 
@@ -22,3 +29,5 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///'+file_path
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    

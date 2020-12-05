@@ -16,5 +16,5 @@ def ingredients(jsonCoctail):
 ...
 
 class confirmCoc(FlaskForm):
-    submit=SubmitField('Confirm order')
+    submit=SubmitField('Confirmar orden')
             

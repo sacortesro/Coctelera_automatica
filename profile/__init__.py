@@ -1,17 +1,20 @@
 """Initialize app."""
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 # Global variables
 db = SQLAlchemy()
+login_manager=LoginManager()
 
 def create_app():
     """Initialize the core aplication."""
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object("config.Config")
     
-    #inicializa la base de datos
+    #inicializar plugins
     db.init_app(app)
+    login_manager.init_app(app)
 
     with app.app_context():
         # Import parts of our flask_wtforms_tutorial
@@ -26,5 +29,5 @@ def create_app():
         app.register_blueprint(home.home_coctail)
         app.register_blueprint(coctail.coctail_bp)
 
-
+        
         return app

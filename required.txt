@@ -4,4 +4,17 @@ Flask-WTF
 email_validator
 urllib3
 pylint-flask-sqlalchemy
+flask-login
+python-dotenv
 //Y la mejor actitud del mundo c:
+<div>{{ form2.password.label }}: {{ form2.password }}</div>
+            
+
+<!-- <div>{{ form2.confirmPassword.label }}: {{ form2.confirmPassword }}
+              {% if form2.confirmPassword.errors %}
+                <ul>
+                  {% for error in form2.confirmPassword.errors %}
+                    <li>{{ error }}</li>{% endfor %}
+                </ul>
+              {% endif %}
+            </div> -->

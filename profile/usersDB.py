@@ -1,8 +1,10 @@
 """Data models."""
 from . import db
+from flask_login import UserMixin
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
-class User(db.Model):
+class User(UserMixin,db.Model):
     """Data model for user accounts."""
 
     __tablename__ = 'coctail_users'
@@ -29,23 +31,25 @@ class User(db.Model):
         nullable=False
     )
     age = db.Column(
-        db.Float,
+        db.Integer,
         index=True,
-        unique=False,
-        nullable=False
-    )
-    created = db.Column(
-        db.DateTime,
-        index=False,
         unique=False,
         nullable=False
     )
     coctailNum = db.Column(
-        db.Float,
+        db.Integer ,
         index=True,
-        unique=False,
+        unique=True,
         nullable=False
     )
+
+    def set_password(self, password):
+		"""Create hashed password."""
+		self.password = generate_password_hash(password, method='sha256')
+
+	def check_password(self, password):
+		"""Check hashed password."""
+		return check_password_hash(self.password, password)
     
 
     def __repr__(self):

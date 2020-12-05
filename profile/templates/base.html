@@ -48,45 +48,20 @@
       </div>
       <div class="w3-container">
         <p>Entre su usuario para buscar cocteles:</p>
-        <form action="/" method="POST">
+        <form action="#" method="POST">
             {{ form1.csrf_token }}
           <p><div class="w3-padding-16">{{ form1.name.label }} {{ form1.name(size=20) }}</div></p>
           <p><div class="w3-padding-16">{{ form1.password.label }} {{ form1.password }}</div></p>
           <p><div>{{ form1.login_bt }}</div></p>
         </form>
-        <p><a href="{{ url_for('signUp') }}"> <button class="w3-button" type="button"> Sign Up </button></a></p>
-        <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continue as guest</button></a></p>
+        <p><a href="{{ url_for('login') }}"> <button class="w3-button" type="button"> Volver al inicio </button></a></p>
+        <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continuar como invitado</button></a></p>
       </div>
     </div>
   </div>  
 
   <!-- signup Modal -->
-<div id="signup" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container w3-black">
-      <span onclick="document.getElementById('signup').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Signup</h1>
-    </div>
-    <div class="w3-container">
-      <p>Regístrese para buscar cocteles:</p>
-      <form action="/" method="POST">
-        {{ form2.csrf_token }}
-        <dl>
-            <div>{{ form2.name.label }}: {{ form2.name(size=20) }}</div>
-            <div>{{ form2.email.label }}: {{ form2.email }}</div>
-            <div>{{ form2.password.label }}: {{ form2.password }}</div>
-            <div>{{ form2.confirmPassword.label }}: {{ form2.confirmPassword }}</div>
-            <div>{{ form2.age.label }}: {{ form2.age }} </div>
-            <div>{{ form2.coctailNum.label }}: {{ form2.coctailNum }} </div>
-            <div>{{ form2.submit }}</div>
-        </dl>        
-    </form>
-      <p><a href="{{ url_for('signUp') }}"> <button class="w3-button" type="button"> Sign Up </button></a></p>
-      <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continue as guest</button></a></p>
-    </div>
-  </div>
-</div>  
-
+  <a href="{{ url_for('signUp') }}" class="w3-bar-item w3-button w3-padding-large">>Registrarse</a>
 
  
   

@@ -25,7 +25,7 @@ class User(UserMixin,db.Model):
         nullable=False
     )
     password = db.Column(
-        db.String(32),
+        db.String(200),
         index=True,
         unique=False,
         nullable=False
@@ -37,19 +37,21 @@ class User(UserMixin,db.Model):
         nullable=False
     )
     coctailNum = db.Column(
-        db.Integer ,
+        db.Integer,
         index=True,
         unique=True,
-        nullable=False
+        nullable=True
     )
 
+    
     def set_password(self, password):
-		"""Create hashed password."""
-		self.password = generate_password_hash(password, method='sha256')
+        """Create hashed password."""
+        self.password = generate_password_hash(password,method='sha256')
 
-	def check_password(self, password):
-		"""Check hashed password."""
-		return check_password_hash(self.password, password)
+    
+    def check_password(self, password):
+        """Check hashed password."""
+        return check_password_hash(self.password, password)
     
 
     def __repr__(self):

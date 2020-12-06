@@ -20,7 +20,7 @@ def login():
     formLogIn = LogInForm()
     if formLogIn.validate_on_submit():
         user = User.query.filter_by(username=formLogIn.name.data).first()
-        if user and user.check_password(password=form.password.data):
+        if user and user.check_password(password=formLogIn.password.data):
             login_user(user)
             return redirect(url_for('home_coctail.home'))
         flash('Invalid username/password combination')
@@ -31,16 +31,22 @@ def login():
 def mission():
     formLogIn = LogInForm()
     if formLogIn.validate_on_submit():
-        if formLogIn.login_bt.data:
+        user = User.query.filter_by(username=formLogIn.name.data).first()
+        if user and user.check_password(password=formLogIn.password.data):
+            login_user(user)
             return redirect(url_for('home_coctail.home'))
+        flash('Invalid username/password combination')
     return render_template("mission.html", form1=formLogIn)
 
 @app.route("/contact", methods=("GET", "POST"))
 def contact():
     formLogIn = LogInForm()
     if formLogIn.validate_on_submit():
-        if formLogIn.login_bt.data:
+        user = User.query.filter_by(username=formLogIn.name.data).first()
+        if user and user.check_password(password=formLogIn.password.data):
+            login_user(user)
             return redirect(url_for('home_coctail.home'))
+        flash('Invalid username/password combination'))
     return render_template("contact.html", form1=formLogIn)
 
 @app.route("/signup", methods=("GET", "POST"))
@@ -69,6 +75,12 @@ def signUp():
             form2= formSignUp, 
             form1=formLogIn)
 
+@app.route("/logout")
+@login_required
+def logout():
+    """User logout"""
+    logout_user()
+    return redirect(url_for('login'))
 
 @login_manager.user_loader
 def load_user(user_id):

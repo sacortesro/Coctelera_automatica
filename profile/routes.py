@@ -46,7 +46,7 @@ def contact():
         if user and user.check_password(password=formLogIn.password.data):
             login_user(user)
             return redirect(url_for('home_coctail.home'))
-        flash('Invalid username/password combination'))
+        flash('Invalid username/password combination')
     return render_template("contact.html", form1=formLogIn)
 
 @app.route("/signup", methods=("GET", "POST"))

@@ -8,4 +8,5 @@ flask-login
 python-dotenv
 flask-session
 redis
+flask_mqtt
 //Y la mejor actitud del mundo c:

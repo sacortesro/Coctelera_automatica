@@ -42,11 +42,11 @@ def orderCoctail():
     
     ingrint = [1+int(ingrList5[0]),1+int(ingrList5[1]),1+int(ingrList5[2]),1+int(ingrList5[3])]
     print(ingrint)
-    ingrmm = 8*ingrint
+    ingrmm = [ingrint[0]*8, ingrint[1]*8, ingrint[2]*8, ingrint[3]*8]
     print(ingrmm)
     
     mqtt.publish('server', 'Preparando Coctail')
-    mqtt.publish('ingr', 'a'+str(ingrmm[1])+'b'+str(ingrmm[2])+'c'+str(ingrmm[3])+'d'+str(ingrmm[4]))
+    mqtt.publish('ingr', 'a'+str(ingrmm[0])+'b'+str(ingrmm[1])+'c'+str(ingrmm[2])+'d'+str(ingrmm[3]))
     
     if form.validate_on_submit():
         return redirect(url_for('home_coctail.home'))

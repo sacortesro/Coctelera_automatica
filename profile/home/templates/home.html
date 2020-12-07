@@ -5,8 +5,6 @@ Lista de cocteles
 
 {%block content%}
 
-<div class="w3-main" style="margin-left:250px">
-
 
         <div class="w3-container w3-margin-top" id="coc">
                 <h3>Cocteles</h3>
@@ -27,28 +25,22 @@ Lista de cocteles
 
 
 <div>
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
         {% if data["drinks"]==None %}
-        <div class="w3-row w3-padding-64">
-                <div class="w3-twothird w3-container">
-                  <h1 class="w3-text-teal">No drinks found</h1>
-                 </div>
-                <div class="w3-third w3-container">
-                  <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-                  <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-                </div>
-              </div>
+          <div class="w3-third w3-padding">
+            <img src="#" alt="none" style="width:100%">
+            <h3>No drinks found</h3>
+            <p>Try another search</p>
+          </div>
         {%else%}
         {%for dat in data["drinks"]%}
-        <div class="w3-row w3-padding">
-                <div class="w3-twothird w3-container">
-                <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h1 class="w3-text-teal">{{dat.get("strDrink")}}</h1></a>
-                  <p>{{dat.get("strInstructions")}}
-                  </div>
-                <div class="w3-third w3-container">
-                  <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-                </div>
-        </div>
+          <div class="w3-third w3-padding ">
+            <img src="{{dat.get('strDrinkThumb')}}" alt="Not found" style="width:100%">
+            <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h3 class="w3-text-teal w3-padding">{{dat.get("strDrink")}}</h3></a>
+            <p>{{dat.get("strInstructions")|truncate(52,TRUE)}}</p>
+          </div>
         {%endfor%}
         {%endif%}
+  </div>
 </div>
 {%endblock%}

@@ -4,23 +4,51 @@ Lista de cocteles
 {% endblock%}
 
 {%block content%}
-<div>
-        <center>
-                <form method="POST" action="">
+
+<div class="w3-main" style="margin-left:250px">
+
+
+        <div class="w3-container w3-margin-top" id="coc">
+                <h3>Cocteles</h3>
+                <p>Degusta nuestros deliciosos cocteles.</p>
+              </div>
+              
+              <div class="w3-row-padding">
+                <div class="w3-col m3">
+                  <label><i class="fa fa-calendar-o"></i> Buscador </label>
+                  <form method="POST" action="">
                         {{ form.csrf_token }}
                         <div >{{ form.coctail_search }}</div>
                         {{ form.searchButton }} 
                 </form>
-        </center>
-</div>
+              </div>
+
+
+
+
 <div>
         {% if data["drinks"]==None %}
-                <h1>No drinks found</h1>
+        <div class="w3-row w3-padding-64">
+                <div class="w3-twothird w3-container">
+                  <h1 class="w3-text-teal">No drinks found</h1>
+                 </div>
+                <div class="w3-third w3-container">
+                  <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+                  <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+                </div>
+              </div>
         {%else%}
-                {%for dat in data["drinks"]%}
-                <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h1>{{dat.get("strDrink")}}</h1></a>        
-                <p>{{dat.get("strInstructions")}}</p>
-                {%endfor%}
+        {%for dat in data["drinks"]%}
+        <div class="w3-row w3-padding">
+                <div class="w3-twothird w3-container">
+                <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h1 class="w3-text-teal">{{dat.get("strDrink")}}</h1></a>
+                  <p>{{dat.get("strInstructions")}}
+                  </div>
+                <div class="w3-third w3-container">
+                  <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+                </div>
+        </div>
+        {%endfor%}
         {%endif%}
 </div>
 {%endblock%}

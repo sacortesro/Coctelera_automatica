@@ -9,7 +9,7 @@ basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))
 
 # Esto ya ni me acuerdo pa que sirve
-file_path = path.abspath(getcwd())+"/test2.db"
+file_path = path.abspath(getcwd())+"/test3.db"
 
 class Config:
     """Setting confg"""
@@ -29,5 +29,4 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///'+file_path
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
     

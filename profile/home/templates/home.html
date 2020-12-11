@@ -6,20 +6,18 @@ Lista de cocteles
 {%block content%}
 
 
-        <div class="w3-container w3-margin-top" id="coc">
+        <div class="w3-container w3-margin-top w3-center" id="coc">
                 <h3>Cocteles</h3>
-                <p>Degusta nuestros deliciosos cocteles.</p>
+                <p>Degusta de nuestros deliciosos cocteles.</p>
               </div>
               
-              <div class="w3-row-padding">
-                <div class="w3-col m3">
-                  <label><i class="fa fa-calendar-o"></i> Buscador </label>
+              <div class="w3-row-padding w3-center">
+                  <label><i class="fa fa-search"></i> Buscador </label>
                   <form method="POST" action="">
                         {{ form.csrf_token }}
                         <div >{{ form.coctail_search }}</div>
-                        {{ form.searchButton }} 
-                </form>
-              </div>
+                       <div class="w3-padding"> {{ form.searchButton }} </div>
+                  </form>
 
 
 
@@ -27,16 +25,15 @@ Lista de cocteles
 <div>
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
         {% if data["drinks"]==None %}
-          <div class="w3-third w3-padding">
-            <img src="#" alt="none" style="width:100%">
-            <h3>No drinks found</h3>
+          <div class="w3-card-4 w3-padding">
+            <h3 class="w3-panel">No drinks found</h3>
             <p>Try another search</p>
           </div>
         {%else%}
         {%for dat in data["drinks"]%}
-          <div class="w3-third w3-padding ">
-            <img src="{{dat.get('strDrinkThumb')}}" alt="Not found" style="width:100%">
-            <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h3 class="w3-text-teal w3-padding">{{dat.get("strDrink")}}</h3></a>
+          <div class="w3-card-2 w3-third w3-padding">
+            <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><img src="{{dat.get('strDrinkThumb')}}" class= "w3-round" alt="Not found" style="width:100%"></a>
+            <a href="{{url_for('coctail_bp.desCoctail', type=dat.get('idDrink'))}}"><h3 class="w3-panel w3-text-teal">{{dat.get("strDrink")}}</h3></a>
             <p>{{dat.get("strInstructions")|truncate(52,TRUE)}}</p>
           </div>
         {%endfor%}

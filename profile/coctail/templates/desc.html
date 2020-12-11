@@ -4,23 +4,18 @@ Coctel {{ desCoc.get('drinks')[0].get("strDrink")}}
 {% endblock%}
 
 {%block content%}
-     <div>
-        <ul>
-            <!-- {%for ing in desCoc["drinks"]%} -->
-            <li>{{desCoc.get("drinks")[0].get("strDrink")}}</li>
-            <li>{{desCoc.get("drinks")[0].get("strInstructions")}}</li>
+ <!-- About Section -->
+ <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="{{desCoc.get('drinks')[0].get('strDrinkThumb')}}" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">{{desCoc.get("drinks")[0].get("strDrink")}}</h1><br>
+      <h5 class="w3-center">Casi estás listo para disfrutar del sabor</h5>
+      <p class="w3-large">{{desCoc.get("drinks")[0].get("strInstructions")}}</p>
+      <a href="{{url_for('coctail_bp.orderCoctail', type=desCoc.get('drinks')[0].get('idDrink'))}}"> <button class="w3-btn w3-block w3-black">Ordenar</button> </a>
+    </div>
+</div>
             
-            <!-- {%endfor%} -->
-        </ul>
-    </div>
-    <div>
-        <center>
-        <img src="{{desCoc.get('drinks')[0].get('strDrinkThumb')}}" alt="Not found" width="150px">
-        </center>
-    </div>
-    <div>
-        <center>
-            <a href="{{url_for('coctail_bp.orderCoctail', type=desCoc.get('drinks')[0].get('idDrink'))}}"> <button>Ordenar</button> </a>
-        </center>
-    </div>
 {%endblock%}

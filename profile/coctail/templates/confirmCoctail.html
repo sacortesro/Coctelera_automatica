@@ -4,22 +4,28 @@ Ordenar coctel {{ desCoc.get('drinks')[0].get("strDrink")}}
 {% endblock%}
 
 {%block content%}
-     <div>
-         <center>
-            <h1> {{ desCoc.get('drinks')[0].get('strDrink') }} </h1>
-            <ul>
-                {% for x in ingrList %}    
-                    <li>{{ x }} </li>                   
-                {% endfor %}
-            </ul>            
-        </center>
+
+<hr>
+  
+  <!-- Menu Section -->
+  <div class="w3-row w3-padding-64" id="menu">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center w3-teal w3-round w3-card-2">{{ desCoc.get('drinks')[0].get('strDrink') }} </h1><br>
+      <h4 class="w3-card-4 w3-padding">
+      {% for x in ingrList %}  
+      <li>{{ x }} </li><br>
+        {% endfor %}
+     </h4>
     </div>
-    <div>
-        <center>
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+        <img src="{{desCoc.get('drinks')[0].get('strDrinkThumb')}}" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
         <form method="POST" action="/home"> 
-            {{ form.submit }} 
+            <div class="w3-padding-32"> {{ form.submit }} </div>
         </form>
-    </center>
-    </div>    
+    
+</div>
+
+  <hr>
     
 {%endblock%}

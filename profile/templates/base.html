@@ -3,19 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>{%block title%}{% endblock%}</title>
 
         <style>
             body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-            .fa-anchor,.fa-coffee {font-size:200px}
             .mySlides {display: none}
             </style>
             
@@ -36,6 +37,7 @@
     <a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="{{ url_for('mission') }}" class="w3-bar-item w3-button w3-padding-large">Misión</a>
     <a href="{{ url_for('contact') }}" class="w3-bar-item w3-button w3-padding-large">Contacto</a>
+    <a href="{{ url_for('signUp') }}" class="w3-bar-item w3-button w3-padding-large">Registro</a>
     <button onclick="document.getElementById('login').style.display='block'" class="w3-bar-item w3-button w3-padding-large">Login</button>
   </div>
 </div>
@@ -48,14 +50,16 @@
         <h1>Login</h1>
       </div>
       <div class="w3-container">
-        <p>Entre su usuario para buscar cocteles:</p>
+        <p class="w3-container">Introduzca su usuario para buscar cocteles:</p>
         <form action="#" method="POST">
             {{ form1.csrf_token }}
-          <p><div class="w3-padding-16">{{ form1.name.label }} {{ form1.name(size=20) }}</div></p>
-          <p><div class="w3-padding-16">{{ form1.password.label }} {{ form1.password }}</div></p>
-          <p><div>{{ form1.login_bt }}</div></p>
+            <div class="w3-container"> {{ form1.name.label }}</div>
+          <div class="w3-container"> {{ form1.name(size=20) }}</div>
+          <div class="w3-container"> {{ form1.password.label }}</div>
+          <div class="w3-container"> {{ form1.password }}</div>
+          <div class="w3-panel">{{ form1.login_bt }}</div>
         </form>
-        <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continuar como invitado</button></a></p>
+        <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-card-1 w3-button w3-gray" type="button">Continuar como invitado</button></a></p>
       </div>
     </div>
   </div>  
@@ -76,15 +80,15 @@
     <div class="mySlides w3-display-container w3-center">
       <img src="{{ url_for('static',filename ='images/Echantinggirl.jpg')}}" alt="Enchanting girl" style="width:100%">
       <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-        <h3>New York</h3>
-        <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+        <h3>El alma de tus fiestas</h3>
+        <p><b>Otorga a tus consumidores una noche inolvidable.</b></p>  
       </div>
     </div>
     <div class="mySlides w3-display-container w3-center">
       <img src="{{ url_for('static',filename ='images/fruit-cocktail-with-fresh-strawberry.jpg')}}" alt="Coctail" style="width:100%">
       <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-        <h3>Chicago</h3>
-        <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+        <h3>Un nuevo mundo</h3>
+        <p><b>Cientos de cocteles a tu disposición</b></p>
       </div>
     </div>
   </header>
@@ -94,7 +98,7 @@
   {%block grids%}{% endblock grids%}
   
   <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-      <h1 class="w3-margin w3-xlarge">Cita del día: Si hay playa, hay alcohol.</h1>
+      <h1 class="w3-margin w3-xlarge">Cita del día: "Si hay playa, hay alcohol."-Benito Antonio Martínez Ocasio</h1>
   </div>
   
   <!-- Footer -->
@@ -127,6 +131,7 @@ function carousel() {
   x[myIndex-1].style.display = "block";  
   setTimeout(carousel, 6000);    
 }
+
 
   // Used to toggle the menu on small screens when clicking on the menu button
   function myFunction() {

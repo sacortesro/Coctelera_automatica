@@ -18,53 +18,51 @@
         {{ message }}
       </div>
     {% endfor %}
+    <div class="w3-card"> 
+      <div class="w3-container w3-center">
     <h1>Registro</h1>
-      <div class="w3-container">
-        <p>Regístrese para buscar cocteles:</p>
+        <p>Regístrese para buscar cocteles:</p></div>
         <form action="#" method="POST">
           {{ form2.csrf_token }}
-          <dl>
-                <div>{{ form2.name.label }}: {{ form2.name(size=20) }}
+                <div class="w3-container w3-center">{{ form2.name.label }}:</div><div class="w3-container w3-center"> {{ form2.name(size=20) }}</div><div class="w3-container w3-center">
                     {% if form2.name.errors %}
-                    <ul>
+                    
                         {% for error in form2.name.errors %}
-                        <li>{{ error }}</li>{% endfor %}
-                    </ul>
+                        {{ error }}{% endfor %}
+                    
                     {% endif %}
                 </div>
-                <div>{{ form2.email.label }}: {{ form2.email }}
+                <div class="w3-container w3-margin-top w3-center">{{ form2.email.label }}:</div><div class="w3-container w3-center"> {{ form2.email }}</div><div class="w3-container w3-center">
                     {% if form2.email.errors %}
-                    <ul>
+                    
                         {% for error in form2.email.errors %}
-                        <li>{{ error }}</li>{% endfor %}
-                    </ul>
+                        {{ error }}{% endfor %}
+                    
                     {% endif %}
                   </div>
                 
-                <div> {{ form2.password.label}} : {{ form2.password}} 
+                <div class="w3-container w3-margin-top w3-center"> {{ form2.password.label}} :</div><div class="w3-container w3-center"> {{ form2.password}} </div><div class="w3-container w3-center">
                     {% if form2.password.errors %}
-                    <ul>
+                    
                         {% for error in form2.password.errors %}
-                        <li>{{ error }}</li>{% endfor %}
-                    </ul>
+                        {{ error }}{% endfor %}
+                    
                     {% endif %}
                 </div>
                 
-                <div>{{ form2.age.label }}: {{ form2.age }} </div>
+                <div class="w3-container w3-margin-top w3-center">{{ form2.age.label }}:</div><div class="w3-container w3-center"> {{ form2.age }} </div>
  
-                <div>{{ form2.coctailNum.label }}: {{ form2.coctailNum }} 
+                <div class="w3-container w3-margin-top w3-center">{{ form2.coctailNum.label }}:</div><div class="w3-container w3-center">{{ form2.coctailNum }} </div><div class="w3-container w3-center">
                     {% if form2.coctailNum.errors %}
-                    <ul>
+                    
                         {% for error in form2.coctailNum.errors %}
-                        <li>{{ error }}</li>{% endfor %}
-                    </ul>
+                        {{ error }}{% endfor %}
+                  
                     {% endif %}
                 </div>
-                <div>{{ form2.submit }}</div>
-          </dl>        
+                <div class="w3-panel w3-center">{{ form2.submit }}</div>     
       </form>
-    <p><a href="{{ url_for('login') }}"> <button class="w3-button" type="button"> Volver al inicio </button></a></p>
-    <p><a href="{{ url_for('home_coctail.home') }}"><button class="w3-button" type="button">Continuar como invitado</button></a></p>
-  
-
+    <p class="w3-center"><a href="{{ url_for('login') }}"> <button class="w3-btn w3-round w3-gray w3-center" type="button"> Volver al inicio </button></a></p>
+    <p class="w3-padding w3-center"><a href="{{ url_for('home_coctail.home') }}"><button class="w3-btn w3-round w3-gray" type="button">Continuar como invitado</button></a></p>
+      </div>
 {% endblock grids%}
